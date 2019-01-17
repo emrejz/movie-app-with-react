@@ -9,11 +9,11 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {logger} from 'redux-logger'
-
+import reduxPromise from 'redux-promise-middleware'
 import rootReducer from './reducers/rootReducer';
 
 
-const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk,logger)));
+const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(reduxPromise(),thunk,logger)));
 
 ReactDOM.render(
 <BrowserRouter>
