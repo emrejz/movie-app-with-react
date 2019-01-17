@@ -6,25 +6,24 @@ import MoviesPage from './components/pages/MoviesPage';
 import {
 	Container, Divider, Grid, Header, Image, List, Menu, Segment, Visibility,
 } from 'semantic-ui-react'
-import { menuStyle, fixedMenuStyle, overlayStyle } from './helpers/styleHelper';
+import { menuStyle, fixedMenuStyle } from './helpers/styleHelper';
 
 
 class App extends Component {
   state = {
-		menuFixed: false,
+		menuFixed: null,
 		overlayFixed: false,
 	};
 
-	stickOverlay = () => this.setState({ overlayFixed: true })
+	
 
 	stickTopMenu = () => this.setState({ menuFixed: true })
 
-	unStickOverlay = () => this.setState({ overlayFixed: false })
 
-	unStickTopMenu = () => this.setState({ menuFixed: false })
+	unStickTopMenu = () => this.setState({ menuFixed: null })
 
   render() {
-		const { menuFixed, overlayFixed, overlayRect } = this.state
+		const { menuFixed } = this.state
 
 		return (
       <div className="App">
@@ -42,9 +41,9 @@ class App extends Component {
 							<Menu.Item>
 								<Image size='mini' src='https://react.semantic-ui.com/logo.png' />
 							</Menu.Item>
-							<Menu.Item header>Movieapp</Menu.Item>
-							<Menu.Item as='a'>
-								<Link to="movies">Movies</Link>
+							<Menu.Item as={Link} to="/">Movieapp</Menu.Item>
+							<Menu.Item as={Link} to="/movies">
+                  Movies
               </Menu.Item>
 							<Menu.Item as='a'>Add New</Menu.Item>
 						</Container>
@@ -52,18 +51,21 @@ class App extends Component {
 				</Visibility>
 
 				<Container text>
-					<Visibility
-						offset={80}
-						once={false}
-						onTopPassed={this.stickOverlay}
-						onTopVisible={this.unStickOverlay}
-						style={overlayFixed ? { ...overlayStyle, ...overlayRect } : {}}
-					/>
+				
 
 					<Route path='/movies' component={MoviesPage}></Route>
 
         </Container>
-
+            <hr/>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat adipisci quod eius totam aliquam molestias, laboriosam tempora doloremque numquam velit error animi minus recusandae, necessitatibus reprehenderit debitis! Architecto, labore placeat.</div>
 				<Segment
 					inverted
 					style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
