@@ -9,7 +9,7 @@ class MoviesPage extends Component {
     movies:PropTypes.array.isRequired
   };
   render() {
-    console.log(this.props);   
+  
     return (
       <div>
         <h2>Movies page</h2>
