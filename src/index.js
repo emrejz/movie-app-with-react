@@ -8,11 +8,12 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
+import {logger} from 'redux-logger'
 
 import rootReducer from './reducers/rootReducer';
 
 
-const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk)));
+const store=createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk,logger)));
 
 ReactDOM.render(
 <BrowserRouter>

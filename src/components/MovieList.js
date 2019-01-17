@@ -5,7 +5,7 @@ const MovieList=(props)=> {
         <p>Movie list is empty</p>
     );
     const movieList=(
-        <div>Movie list</div>
+        <div>{props.movies.error.response ? <h2>hata</h2>: "çalışıyor"}</div>
     )
     return (
       <div>
@@ -15,7 +15,9 @@ const MovieList=(props)=> {
   }
 
 MovieList.propTypes={
-    movies:PropTypes.array.isRequired
+    movies:PropTypes.shape({
+        movies:PropTypes.array.isRequired
+    }).isRequired
 };
 MovieList.defaultProps={};
 export default MovieList;
