@@ -43,7 +43,7 @@ export default class Header extends Component {
 							<Menu.Item as={NavLink} to="/movies">
 								Movies
 							</Menu.Item>
-							<Menu.Item as={Link} to="/add" >Add New</Menu.Item>
+							<Menu.Item as={Link} to="movies/add" >Add New</Menu.Item>
 						</Container>
 					</Menu>
 				</Visibility>
