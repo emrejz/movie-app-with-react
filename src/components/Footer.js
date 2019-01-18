@@ -7,7 +7,7 @@ export default function Footer(props) {
     <div  >
       <Segment
             inverted
-			style={{ margin: 'auto 0em 0em 0em', padding: '1em 0em' }}
+			style={{ margin: '5em 0em 0em 0em', padding: '1em 0em' }}
 		vertical>
 					<Container textAlign='center' >
 						

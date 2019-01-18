@@ -16,9 +16,9 @@ class MoviesPage extends Component {
   render() {
   
     return (
-      <div>
-        <h2>Movies page</h2>
-        <MovieList movies={this.props.movies}></MovieList>
+      <div style={{textAlign: "center"}}>
+        <h2 >Movies page</h2>
+        <MovieList  movies={this.props.movies}></MovieList>
       </div>
     )
   }

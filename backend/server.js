@@ -27,10 +27,11 @@ mongodb.MongoClient.connect(dbUrl, (err, db) =>  {
   }
 
   app.get('/api/movies', (req, res) => {
-    db.collection('movies').find({}).toArray((err, movies) => {
-      res.json({ movies });
-    });
+
+  db.collection('movies').find({}).toArray((err, movies) => {
+    res.json({ movies });
   });
+
 
   app.post('/api/movies', (req, res) => {
     const { errors, isValid } = validate(req.body);
