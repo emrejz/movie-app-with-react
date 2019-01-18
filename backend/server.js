@@ -30,7 +30,7 @@ mongodb.MongoClient.connect(dbUrl, (err, db) =>  {
 
   db.collection('movies').find({}).toArray((err, movies) => {
     res.json({ movies });
-  });
+  });  });
 
 
   app.post('/api/movies', (req, res) => {
