@@ -7,8 +7,8 @@ import { HashLoader } from 'react-spinners';
 
 const MovieList=(props)=> { 
   
-    console.log( props.movies.error.response);
-    console.log( props.movies.error.status);
+
+    
 
     
     const errorConnection=(
@@ -23,19 +23,18 @@ const MovieList=(props)=> {
         color={'#36bdb3'}
         loading={props.movies.fetching}
     />);
-
     const movieList=(
         <div>
         {   
             props.movies.movies.length===0 
                 ? <h3>{"movie list is empty"}</h3>
                 : props.movies.fetched ?
-                <Grid stackable columns={3}>
+                <Grid stackable left columns={3}>
                     {
                         props.movies.movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
                     }
                 </Grid> : loadingSpinner
-        }
+        } 
     </div>)
     return (
       <div>
