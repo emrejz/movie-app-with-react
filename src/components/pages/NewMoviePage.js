@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NewMovieForm from '../NewMovieForm';
 import {connect} from 'react-redux'
-import {addNewMovie} from '../../actions/addNewMovie';
+import {addNewMovie, fetchMovie} from '../../actions/addNewMovie';
 
 
 class NewMoviePage extends Component {
@@ -9,19 +9,31 @@ class NewMoviePage extends Component {
 		super(props)
 		console.log(this.props);
 	}
+	componentDidMount() {
+		
+		const { match } = this.props;
+		if (!this.props.movie && match.params._id) {
+		  this.props.fetchMovie(match.params._id);
+		}
+	}
 	render() {
 		return (
 			<div>
-				<NewMovieForm newMovie={this.props.newMovie} addNewMovie={this.props.addNewMovie}/>
+				<NewMovieForm 
+				newMovie={this.props.newMovie} 
+				movie={this.props.movie}
+				addNewMovie={this.props.addNewMovie}/>
 			</div>
 		);
 	}
 }
-const mapStateToProps=({newMovie})=>{
+const mapStateToProps=({newMovie,movies},props)=>{
 return{
-	newMovie
+	newMovie,
+	movie:movies.movies.find(movie=>movie._id===props.match.params._id)
 }}
 const mapDispatchToProps={
-		addNewMovie
+		addNewMovie,
+		fetchMovie
 }
 export default connect(mapStateToProps,mapDispatchToProps)(NewMoviePage);

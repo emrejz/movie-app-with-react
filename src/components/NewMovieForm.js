@@ -13,14 +13,18 @@ class NewMovieForm extends Component {
 		console.log(this.props);
 	}
 	state = {
-		title: '',
-		cover: '',
+		title: this.props.movie ? this.props.movie.title : "",
+		cover: this.props.movie ? this.props.movie.cover : "",
 		done:false,
 		errors:{}
 	};
 
 	static propTypes={
 		addNewMovie: PropTypes.func.isRequired
+	}
+	componentWillReceiveProps(nextProps) {
+		const { movie } = nextProps.newMovie;
+		console.log(nextProps);
 	}
 	handleChange=(e)=>{
 	this.setState({
