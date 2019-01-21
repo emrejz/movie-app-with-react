@@ -6,7 +6,7 @@ const initialState={
     fetching:false,
     fetched:false,
     error:{},
-    movie:{a:""}
+    movie:{fetching:false}
 }
 export default (state=initialState,action)=>{
     switch(action.type){
@@ -35,16 +35,19 @@ export default (state=initialState,action)=>{
         }
         case FETCH_MOVIE_PENDING:
 			return {
-				...state,
+                ...state,
+                movie:{fetching:true}
 			};
 		case FETCH_MOVIE_FULFILLED:
 			return {
-				...state,
-				movie: action.payload.movie
+                ...state,
+                movie:{movie: action.payload.movie,fetching:false},                
+				
 			};
 		case FETCH_MOVIE_REJECTED:
 			return {
-				...state,
+                ...state,
+                movie:{fetching:false},      
 			};
 	
         default:
