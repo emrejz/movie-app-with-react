@@ -16,6 +16,7 @@ class NewMovieForm extends Component {
 		title: this.props.movie ? this.props.movie.title : "",
 		cover: this.props.movie ? this.props.movie.cover : "",
 		done:false,
+		redirect:false,
 		errors:{}
 	};
 
@@ -34,7 +35,8 @@ class NewMovieForm extends Component {
 	onSubmit=()=>{
 	const errors=this.validate();
 	this.setState({
-		errors
+		errors,
+		redirect:true
 	})
 	if(Object.keys(errors).length===0){
 		this.props.addNewMovie(this.state);
@@ -93,8 +95,8 @@ class NewMovieForm extends Component {
 			<div>
 				<h2>new movie form</h2>
 				<h2>New Movie</h2>
-				{form}
-				{this.props.newMovie.fetched && <Redirect to="/movies"/> }
+				
+				{this.props.newMovie.fetched  && this.state.redirect ? <Redirect to="/movies"/> : form }
 			</div>
 		);
 	}}

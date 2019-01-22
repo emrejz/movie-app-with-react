@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import MovieList from '../MovieList'
-import {fetchMovies} from '../../actions/movies'
+import {fetchMovies,deleteMovie} from '../../actions/movies'
 
 
 class MoviesPage extends Component {
@@ -18,7 +18,7 @@ class MoviesPage extends Component {
     return (
       <div style={{textAlign: "left"}}>
         <h2 >Movies page</h2>
-        <MovieList  movies={this.props.movies}></MovieList>
+        <MovieList  movies={this.props.movies} deleteMovie={this.props.deleteMovie}></MovieList>
       </div>
     )
   }
@@ -29,6 +29,7 @@ return{
 }
 };
 const mapDispatchToProps={
-  fetchMovies
+  fetchMovies,
+  deleteMovie 
 }
 export default connect(mapStateToProps,mapDispatchToProps)(MoviesPage);

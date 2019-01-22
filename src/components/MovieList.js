@@ -26,12 +26,12 @@ const MovieList=(props)=> {
     const movieList=(
         <div>
         {   
-            props.movies.movies.length===0 
+            props.movies.fetched && props.movies.movies.length===0 
                 ? <h3>{"movie list is empty"}</h3>
                 : props.movies.fetched ?
                 <Grid stackable columns={3}>
                     {
-                        props.movies.movies.map(movie => <MovieCard key={movie._id} movie={movie} />)
+                        props.movies.movies.map(movie => <MovieCard deleteMovie={props.deleteMovie} key={movie._id} movie={movie} />)
                     }
                 </Grid> : loadingSpinner
         } 
