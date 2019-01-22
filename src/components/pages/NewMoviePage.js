@@ -5,15 +5,13 @@ import {addNewMovie, fetchMovie} from '../../actions/addNewMovie';
 
 
 class NewMoviePage extends Component {
-	constructor(props){
-		super(props)
-		console.log(this.props);
-	}
+
 	componentDidMount() {
 		
 		const { match } = this.props;
 		if (!this.props.movie && match.params._id) {
-		  this.props.fetchMovie(match.params._id);
+		  this.props.fetchMovie(match.params._id)
+		
 		}
 	}
 	render() {
@@ -34,6 +32,7 @@ return{
 }}
 const mapDispatchToProps={
 		addNewMovie,
-		fetchMovie
+		fetchMovie,
+		
 }
 export default connect(mapStateToProps,mapDispatchToProps)(NewMoviePage);

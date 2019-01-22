@@ -3,7 +3,7 @@ import { Card, Icon, Image, Grid, Button } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 
-const extra = (movie,deleteMovie) => {
+const extra = (movie,deleteMovie,updateMovie) => {
 	return(
 		<div className="ui two buttons">
 			<Button animated as={Link} to={`/movie/${movie._id}`}>

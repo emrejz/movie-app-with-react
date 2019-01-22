@@ -18,7 +18,7 @@ class MoviesPage extends Component {
     return (
       <div style={{textAlign: "left"}}>
         <h2 >Movies page</h2>
-        <MovieList  movies={this.props.movies} deleteMovie={this.props.deleteMovie}></MovieList>
+        <MovieList  movies={this.props.movies} deleteMovie={this.props.deleteMovie} ></MovieList>
       </div>
     )
   }
@@ -30,6 +30,7 @@ return{
 };
 const mapDispatchToProps={
   fetchMovies,
-  deleteMovie 
+  deleteMovie,
+   
 }
 export default connect(mapStateToProps,mapDispatchToProps)(MoviesPage);

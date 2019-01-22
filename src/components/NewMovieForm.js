@@ -8,10 +8,7 @@ import {Redirect} from 'react-router-dom'
 
 
 class NewMovieForm extends Component {
-	constructor(props){
-		super(props)
-		console.log(this.props);
-	}
+	
 	state = {
 		title: this.props.movie ? this.props.movie.title : "",
 		cover: this.props.movie ? this.props.movie.cover : "",
@@ -24,8 +21,14 @@ class NewMovieForm extends Component {
 		addNewMovie: PropTypes.func.isRequired
 	}
 	componentWillReceiveProps(nextProps) {
-		const { movie } = nextProps.newMovie;
-		console.log(nextProps);
+	
+		const  movie  = nextProps.newMovie.movie.movie;
+		if(movie.title && (movie.title!==this.state.title)){
+			this.setState({
+				title:movie.title,
+				cover:movie.cover	
+			})
+		}
 	}
 	handleChange=(e)=>{
 	this.setState({

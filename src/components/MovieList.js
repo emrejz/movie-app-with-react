@@ -31,7 +31,7 @@ const MovieList=(props)=> {
                 : props.movies.fetched ?
                 <Grid stackable columns={3}>
                     {
-                        props.movies.movies.map(movie => <MovieCard deleteMovie={props.deleteMovie} key={movie._id} movie={movie} />)
+                        props.movies.movies.map(movie => <MovieCard updateMovie={props.updateMovie}  deleteMovie={props.deleteMovie} key={movie._id} movie={movie} />)
                     }
                 </Grid> : loadingSpinner
         } 

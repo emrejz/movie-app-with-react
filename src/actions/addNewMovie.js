@@ -9,6 +9,10 @@ export const FETCH_MOVIE_REJECTED="FETCH_MOVIE_REJECTED"
 export const FETCH_MOVIE_FULFILLED="FETCH_MOVIE_FULFILLED"
 export const FETCH_MOVIE_PENDING="FETCH_MOVIE_PENDING"
 
+export const UPDATE_MOVIE_REJECTED="UPDATE_MOVIE_REJECTED"
+export const UPDATE_MOVIE_FULFILLED="UPDATE_MOVIE_FULFILLED"
+export const UPDATE_MOVIE_PENDING="UPDATE_MOVIE_PENDING"
+
 export function addNewMovie({title,cover}){
     return dispatch=>{  
         dispatch({
@@ -24,7 +28,16 @@ export function fetchMovie(id){
 		dispatch({
 			type: "FETCH_MOVIE",
 			payload: axios.get(`${API_BASE}/movies/${id}`)
-				.then(result => result.data)
+				.then(result =>result.data)
+		})
+	}
+}
+
+export function updateMovie(id,title,cover){
+	return dispatch=>{
+		dispatch({
+			type:"UPDATE_MOVIE",
+			payload: axios.put(`${API_BASE}/movies/${id}`,{title,cover})
 		})
 	}
 }
