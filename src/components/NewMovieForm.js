@@ -24,18 +24,7 @@ class NewMovieForm extends Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		const { movie } = nextProps.newMovie;
-		if(movie!=null)
-		if (
-			movie.title
-			&&
-			movie.title !== this.state.title
-		) {
-			this.setState({
-				title: movie.title,
-				cover: movie.cover,
-			});
-
-		}
+		console.log(nextProps);
 	}
 	handleChange=(e)=>{
 	this.setState({
@@ -65,7 +54,7 @@ class NewMovieForm extends Component {
 	}
 
 	render() {
-		const form=	<Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching || this.props.newMovie.movie.fetching}>
+		const form=	<Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching}>
 		<Form.Field error={!!(this.state.errors.title)}>
 			<label>Title</label>
 			{this.state.errors.title && <ErrorMessage message={this.state.errors.title}/> }
